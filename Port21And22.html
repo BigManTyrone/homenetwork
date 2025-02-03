@@ -31,13 +31,14 @@
         <div class="columns">
             <div class="column">
                 <h2>Left port: 21</h2>
-                <p id="left-port-speed">Speed: 1000 Mbps</p>
+                <p id="left-port-speed">Speed: 1000 Mbps</p> 
+            </div>
             <div class="column">
                 <h2>Right port: 22</h2>
-                <p id="right-port-speed">Speed: 1000 Mbps</p>
+                <p id="right-port-speed">Speed: 1000 Mbps</p> 
             </div>
         </div>
-        <img class="images" src="images/RJ45.png" alt="RJ45 Connector">
+        <img class="images" src="images/RJ45.png" alt="RJ45 Connector"> 
     </div>
 
     <script>
@@ -62,7 +63,7 @@
 
         const reflectPreference = () => {
             document.firstElementChild.setAttribute('data-theme', theme.value);
-            document.body.className = theme.value;
+            document.body.className = theme.value; 
             document.querySelector('#theme-toggle')?.setAttribute('aria-label', theme.value);
         };
 
