@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Home Network</title>
-    <link rel="stylesheet" href="Style.css"> <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="Style.css">
 </head>
 <body>
     <div class="container">
@@ -31,14 +31,14 @@
         <div class="columns">
             <div class="column">
                 <h2>Left port:</h2>
-                <p id="left-port-speed">Speed: 1000 Mbps</p> <!-- Example static speed -->
+                <p id="left-port-speed">Speed: 1000 Mbps</p>
             </div>
             <div class="column">
                 <h2>Right port:</h2>
-                <p id="right-port-speed">Speed: 1000 Mbps</p> <!-- Example static speed -->
+                <p id="right-port-speed">Speed: 1000 Mbps</p>
             </div>
         </div>
-        <img class="images" src="images/RJ45.png" alt="RJ45 Connector"> <!-- Ensure the correct path -->
+        <img class="images" src="images/RJ45.png" alt="RJ45 Connector">
     </div>
 
     <script>
@@ -63,7 +63,7 @@
 
         const reflectPreference = () => {
             document.firstElementChild.setAttribute('data-theme', theme.value);
-            document.body.className = theme.value; // Ensure the body has the correct class
+            document.body.className = theme.value; 
             document.querySelector('#theme-toggle')?.setAttribute('aria-label', theme.value);
         };
 
