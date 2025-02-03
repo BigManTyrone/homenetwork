@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Home Network</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle" id="theme-toggle" title="Toggle light & dark" aria-label="auto">
+            <svg class="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+              <mask class="moon" id="moon-mask">
+                <rect x="0" y="0" width="100%" height="100%" fill="white" />
+                <circle cx="24" cy="10" r="6" fill="black" />
+              </mask>
+              <circle class="sun" cx="12" cy="12" r="6" mask="url(#moon-mask)" fill="currentColor" />
+              <g class="sun-beams" stroke="currentColor">
+                <line x1="12" y1="1" x2="12" y2="3" />
+                <line x1="12" y1="21" x2="12" y2="23" />
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                <line x1="1" y1="12" x2="3" y2="12" />
+                <line x1="21" y1="12" x2="23" y2="12" />
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+               </g>
+            </svg>
+        </button>
+
+        <!-- Button Container -->
+        <div class="button-container">
+            <!-- List of Buttons -->
+            <div class="button-list">
+                <a href="Port1And2.html"><button class="action-button">Port 1 and 2</button></a>
+                <a href="Port3And4.html"><button class="action-button">Port 3 and 4</button></a>
+                <a href="Port5And6.html"><button class="action-button">Port 5 and 6</button></a>
+                <a href="Port7And8.html"><button class="action-button">Port 7 and 8</button></a>
+                <a href="Port9And10.html"><button class="action-button">Port 9 and 10</button></a>
+                <a href="Port11And12.html"><button class="action-button">Port 11 and 12</button></a>
+                <a href="Port13And14.html"><button class="action-button">Port 13 and 14</button></a>
+                <a href="Port15And16.html"><button class="action-button">Port 15 and 16</button></a>
+                <a href="Port17And18.html"><button class="action-button">Port 17 and 18</button></a>
+                <a href="Port19And20.html"><button class="action-button">Port 19 and 20</button></a>
+                <a href="Port21And22.html"><button class="action-button">Port 21 and 22</button></a>
+                <a href="Port23And24.html"><button class="action-button">Port 23 and 24</button></a>
+                <a href="Port25And26.html"><button class="action-button">Port 25 and 26</button></a>
+                <a href="Port27And28.html"><button class="action-button">Port 27 and 28</button></a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const storageKey = 'theme-preference';
+
+        const onClick = () => {
+            theme.value = theme.value === 'light' ? 'dark' : 'light';
+            setPreference();
+        };
+
+        const getColorPreference = () => {
+            if (localStorage.getItem(storageKey)) {
+                return localStorage.getItem(storageKey);
+            }
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        };
+
+        const setPreference = () => {
+            localStorage.setItem(storageKey, theme.value);
+            reflectPreference();
+        };
+
+        const reflectPreference = () => {
+            document.firstElementChild.setAttribute('data-theme', theme.value);
+            document.body.className = theme.value;
+            document.querySelector('#theme-toggle')?.setAttribute('aria-label', theme.value);
+        };
+
+        const theme = {
+            value: getColorPreference(),
+        };
+
+        reflectPreference();
+
+        window.onload = () => {
+            reflectPreference();
+            document.querySelector('#theme-toggle').addEventListener('click', onClick);
+        };
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', ({ matches: isDark }) => {
+            theme.value = isDark ? 'dark' : 'light';
+            setPreference();
+        });
+    </script>
+</body>
+</html>
